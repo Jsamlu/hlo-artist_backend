@@ -5,6 +5,8 @@ import pool from '../config/db.js';
 import { roleAuth } from '../middleware/auth.js';
 import dotenv from "dotenv";
 
+import {adminRegister} from '../controllers/adminAuth.js'
+
 dotenv.config();
 
 const router = express.Router();
@@ -29,6 +31,12 @@ router.get("/check", (req, res)=>{
     res.send("Auth route is working password: " + process.env.DB_PASSWORD);
     console.log("DB Password: " + process.env.DB_PASSWORD);
 });
+
+
+
+// Admin routes
+
+router.post("/auth/admin_register",adminRegister);
 
 
 // Register 
